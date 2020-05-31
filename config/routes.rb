@@ -1,3 +1,14 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+ 
+  devise_for :clients
+  scope module: 'frontend' do
+    root 'landing#home'
+  end
+  
+  namespace :backend, path: 'dashboard' do
+    root 'dashboard#index'
+  end
+
+  
+
 end
