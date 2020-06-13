@@ -3,7 +3,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-
+require("bootstrap-datepicker")
 import 'bootstrap';
 
 import '../stylesheets/application';
@@ -13,4 +13,11 @@ import "packs/OverlayScrollbars.min";
 import "packs/dashboard2";
 
 
+window.jQuery = $;
+window.$ = $;
 global.toastr = require("toastr")
+
+toastr.options = {
+	"positionClass": "toast-top-right",
+	
+}

@@ -1,0 +1,224 @@
+<div class="error-messages">
+  <%@lead.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</div>
+<br>
+
+<%=form_for([:backend,@lead]) do |f|%>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card card-primary card-outline col-md-12">
+        <div class="card-header">
+          <h5 class="card-title m-0">Contact Details</h5>
+        </div>
+        <div class="card-body">
+          <div class="form-row">
+            <div class="col-md-3 mb-3 ">
+              <%=f.label "title", class: "col-md-12 col-form-label"%>
+              <div class="col-md-12">
+                <%= f.select(:title,[["Mr", "Mr"],["Mrs", "Mrs"],["Other", "Mr/Ms"]],{},{ :class => 'form-control' }) %>
+              </div>
+            </div>
+            <div class="col-md-3 mb-3 ">
+              <%=f.label "Name", class: "col-md-12 col-form-label"%>
+              <div class="col-md-12">
+                <%=f.text_field :person_name, class: "form-control", placeholder: "Person name.."%>
+              </div>
+            </div>
+            <div class="col-md-3 mb-3 ">
+              <%=f.label "E-mail", class: "col-md-12 col-form-label"%>
+              <div class="col-md-12">
+                <%=f.email_field :valid_email_address, class: "form-control", placeholder: "Valid E-mail address"%>
+              </div>
+            </div>
+            <div class="col-md-3 mb-3 ">
+              <%=f.label "Telephone", class: "col-md-12 col-form-label"%>
+              <div class="col-md-12">
+                <%=f.telephone_field :valid_phone_number, class: "form-control", placeholder: "Valid Telephone number.."%>
+              </div>
+            </div>
+          </div>
+		    </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card card-primary card-outline col-md-12">
+            <div class="card-header">
+              <h5 class="card-title m-0">Moving from...</h5>
+            </div>
+            <div class="card-body">
+              
+              <div class="form-group ">
+                <%=f.label "House/Flat name or number", class: "col-md-12 col-form-label"%>
+                <div class="col-md-12">
+                  <%=f.text_field :current_house_name_or_number, class: "form-control", placeholder: "house or flat name/number.."%>
+                </div>
+              </div>
+              <div class="form-group ">
+                <%=f.label "Stree name", class: "col-md-12 col-form-label"%>
+                <div class="col-md-12">
+                  <%=f.email_field :current_street_name, class: "form-control", placeholder: "current street.."%>
+                </div>
+              </div>
+              <div class="form-group ">
+                <%=f.label "Zip/Postcode", class: "col-md-12 col-form-label"%>
+                <div class="col-md-12">
+                  <%=f.telephone_field :current_post_code, class: "form-control", placeholder: "Current post/zip code.."%>
+                </div>
+              </div>
+              <div class="form-group ">
+                <%=f.label "Bedrooms", class: "col-md-12 col-form-label"%>
+                <div class="col-md-12">
+                  <%= f.select(:current_house_bedrooms,[1...10],{},{ :class => 'form-control' }) %>
+                </div>
+              </div>
+              <div class="form-group ">
+                <%=f.label "Home Type", class: "col-md-12 col-form-label"%>
+                <div class="col-md-12">
+                  <%= f.select(:current_house_house_type,[["House", "House"],["Banglow", "Banglow"],["Flat", "Flat"],["Apartment", "Apartment"]],{},{ :class => 'form-control' }) %>
+                </div>
+              </div>
+              <div class="form-group ">
+                <%=f.label "Acess Issues", class: "col-md-12 col-form-label"%>
+                <div class="col-md-12">
+                  <%=f.text_field :current_house_issues, class: "form-control", placeholder: "Acess Issues.."%>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card card-primary card-outline col-md-12">
+            <div class="card-header">
+              <h5 class="card-title m-0">Moving to...</h5>
+            </div>
+            <div class="card-body">
+              
+              <div class="form-group ">
+                <%=f.label "House/Flat name or number", class: "col-md-12 col-form-label"%>
+                <div class="col-md-12">
+                  <%=f.text_field :new_house_name_or_number, class: "form-control", placeholder: "house or flat name/number.."%>
+                </div>
+              </div>
+              <div class="form-group ">
+                <%=f.label "Stree name", class: "col-md-12 col-form-label"%>
+                <div class="col-md-12">
+                  <%=f.email_field :new_street_name, class: "form-control", placeholder: " street.."%>
+                </div>
+              </div>
+              <div class="form-group ">
+                <%=f.label "Zip/Postcode", class: "col-md-12 col-form-label"%>
+                <div class="col-md-12">
+                  <%=f.telephone_field :new_post_code, class: "form-control", placeholder: " post/zip code.."%>
+                </div>
+              </div>
+              <div class="form-group ">
+                <%=f.label "Bedrooms", class: "col-md-12 col-form-label"%>
+                <div class="col-md-12">
+                  <%= f.select(:new_house_bedrooms,[1...10],{},{ :class => 'form-control' }) %>
+                </div>
+              </div>
+              <div class="form-group ">
+                <%=f.label "Home Type", class: "col-md-12 col-form-label"%>
+                <div class="col-md-12">
+                  <%= f.select(:new_house_house_type,[["House", "House"],["Banglow", "Banglow"],["Flat", "Flat"],["Apartment", "Apartment"]],{},{ :class => 'form-control' }) %>
+                </div>
+              </div>
+              <div class="form-group ">
+                <%=f.label "Acess Issues", class: "col-md-12 col-form-label"%>
+                <div class="col-md-12">
+                  <%=f.text_field :new_house_issues, class: "form-control", placeholder: "Acess Issues.."%>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card card-primary card-outline col-md-12">
+        <div class="card-header">
+          <h5 class="card-title m-0">Additional Information</h5>
+        </div>
+        <div class="card-body">
+          
+          <div class="form-group ">
+            <%=f.label "House/Flat name or number", class: "col-md-12 col-form-label"%>
+            <div class="col-md-12">
+              <%=f.text_field :new_house_name_or_number, class: "form-control", placeholder: "house or flat name/number.."%>
+            </div>
+          </div>
+          <div class="form-group ">
+            <%=f.label "Stree name", class: "col-md-12 col-form-label"%>
+            <div class="col-md-12">
+              <%=f.email_field :new_street_name, class: "form-control", placeholder: " street.."%>
+            </div>
+          </div>
+          <div class="form-group ">
+            <%=f.label "Zip/Postcode", class: "col-md-12 col-form-label"%>
+            <div class="col-md-12">
+              <%=f.telephone_field :new_post_code, class: "form-control", placeholder: " post/zip code.."%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <div class="card card-primary card-outline col-md-12 calender-card">
+        <div class="card-header">
+          <h5 class="card-title m-0">Expected removal day...</h5>
+        </div>
+        <div class="card-body">
+         <div id="removal_day"></div>
+         <%=f.hidden_field :expected_removal_day%>          
+          
+        </div>
+      </div>
+      <div class="card card-primary card-outline col-md-12">
+        <div class="card-header">
+          <h5 class="card-title m-0">Additional services required</h5>
+        </div>
+        <div class="card-body">
+          
+          <div class="form-group ">
+            <%=f.label "House/Flat name or number", class: "col-md-12 col-form-label"%>
+            <div class="col-md-12">
+              <%=f.text_field :current_house_name_or_number, class: "form-control", placeholder: "house or flat name/number.."%>
+            </div>
+          </div>
+          <div class="form-group ">
+            <%=f.label "Stree name", class: "col-md-12 col-form-label"%>
+            <div class="col-md-12">
+              <%=f.email_field :current_street_name, class: "form-control", placeholder: "current street.."%>
+            </div>
+          </div>
+          <div class="form-group ">
+            <%=f.label "Zip/Postcode", class: "col-md-12 col-form-label"%>
+            <div class="col-md-12">
+              <%=f.telephone_field :current_post_code, class: "form-control", placeholder: "Current post/zip code.."%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+    
+
+        
+        
+    
+ 
+<%end%>
+
+<script>
+  $('#removal_day').datepicker({
+    todayHighlight: true,
+    startDate: "today",
+    weekStart: 1
+  });
+</script>

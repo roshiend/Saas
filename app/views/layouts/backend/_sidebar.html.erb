@@ -27,21 +27,21 @@
             <a href="#" class="nav-link">
               <i class="fas fa-code-branch nav-icon"></i>
               <p>
-                Categories
+                Leads
                 <i class="fas fa-plus-circle right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <%#=link_to backend_categories_path do%>
+              <%=link_to new_backend_lead_path do%>
                 <li class="nav-item nav-tem-sub" >
-                  All Categories
+                  Add a Lead
                 </li>
-              <%#end%>
-              <%#=link_to new_backend_category_path do%>
-                <!-- <li class="nav-item nav-tem-sub">
-                  Create Category
-                </li> -->
-              <%#end%>
+              <%end%>
+              <%=link_to backend_leads_path do%>
+                <li class="nav-item nav-tem-sub">
+                  All Leads
+                </li>
+              <%end%>
             </ul>
           </li>
         </ul>

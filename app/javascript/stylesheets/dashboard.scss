@@ -304,6 +304,9 @@ box-shadow: 0px 2px 9px -3px rgba(168,168,168,0.77);
     border-top: none !important;
 }
 
+.card-body{
+  margin-top: -15px !important;
+}
 
 
 .form-card{
@@ -389,7 +392,47 @@ span.select2-selection.select2-selection--single {
 
 .form-control{
   border-radius: 0 !important;
+  font-size: 12px !important;
+  background: #f8f9fa !important;
+  height: 25px !important;
+ 
 }
+
+.form-group{
+   margin-bottom: 0 !important;
+}
+.table-condensed {
+  font-size: 14px !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+.calender-card{
+  max-height: 240px !important;
+}
+.today{
+  background: cornflowerblue !important;
+}
+.active {
+  background-color: dodgerblue!important;
+}
+.datepicker .datepicker-switch, .datepicker .next, .datepicker .prev, .datepicker tfoot tr th {
+    cursor: pointer !important;
+}
+
+.day {
+    border-radius: 100px !important;
+    
+}
+.datepicker table tr td.day:hover{
+  cursor: pointer !important;
+  background-color: dodgerblue!important;
+}
+.datepicker-inline {
+  font-size: 14px !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
 //----------------------------
 code, kbd, pre, samp {
   font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
