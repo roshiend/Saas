@@ -1,0 +1,37 @@
+<div class="error-messages">
+  <%@service.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</div>
+<br>
+<%=form_for([:backend,@service]) do |f|%>
+	<div class="row">
+		<div class="col-md-12">
+	    <div class="card card-primary card-outline col-md-12">
+	        <div class="card-header">
+	          <h5 class="card-title m-0">Services</h5>
+	        </div>
+	        <div class="card-body">
+	          
+	          <div class="form-group ">
+	            <%=f.label "Service name", class: "col-md-12 col-form-label"%>
+	            <div class="col-md-12">
+	              <%=f.text_field :service_name, class: "form-control", placeholder: "Service name.."%>
+	            </div>
+	          </div>
+	          <div class="form-group ">
+	            <%=f.label "Service price", class: "col-md-12 col-form-label"%>
+	            <div class="col-md-12">
+	              <%=f.text_field :service_price, class: "form-control", placeholder: "Service price.."%>
+	            </div>
+	          </div>
+	          
+	        </div>
+	        <div class="card-header">
+	         <%=f.submit 'Create', class: "btn btn-primary" %>
+	         <%=button_tag 'cancel', class: "btn btn-danger" %>
+	        </div>
+	    </div>
+	  </div>	
+  </div>
+<%end%>

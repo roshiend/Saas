@@ -62,7 +62,7 @@
               <div class="form-group ">
                 <%=f.label "Stree name", class: "col-md-12 col-form-label"%>
                 <div class="col-md-12">
-                  <%=f.email_field :current_street_name, class: "form-control", placeholder: "current street.."%>
+                  <%=f.text_field :current_street_name, class: "form-control", placeholder: "current street.."%>
                 </div>
               </div>
               <div class="form-group ">
@@ -86,7 +86,7 @@
               <div class="form-group ">
                 <%=f.label "Acess Issues", class: "col-md-12 col-form-label"%>
                 <div class="col-md-12">
-                  <%=f.text_field :current_house_issues, class: "form-control", placeholder: "Acess Issues.."%>
+                  <%=f.text_area :current_house_issues, class: "form-control", placeholder: "Access Issues..",cols: 10, rows: 2%>
                 </div>
               </div>
             </div>
@@ -108,7 +108,7 @@
               <div class="form-group ">
                 <%=f.label "Stree name", class: "col-md-12 col-form-label"%>
                 <div class="col-md-12">
-                  <%=f.email_field :new_street_name, class: "form-control", placeholder: " street.."%>
+                  <%=f.text_field :new_street_name, class: "form-control", placeholder: " street.."%>
                 </div>
               </div>
               <div class="form-group ">
@@ -132,7 +132,7 @@
               <div class="form-group ">
                 <%=f.label "Acess Issues", class: "col-md-12 col-form-label"%>
                 <div class="col-md-12">
-                  <%=f.text_field :new_house_issues, class: "form-control", placeholder: "Acess Issues.."%>
+                  <%=f.text_area :new_house_issues, class: "form-control", placeholder: "Access Issues..",:cols => "10", :rows=> "2"%>
                 </div>
               </div>
             </div>
@@ -144,29 +144,14 @@
           <h5 class="card-title m-0">Additional Information</h5>
         </div>
         <div class="card-body">
-          
           <div class="form-group ">
-            <%=f.label "House/Flat name or number", class: "col-md-12 col-form-label"%>
             <div class="col-md-12">
-              <%=f.text_field :new_house_name_or_number, class: "form-control", placeholder: "house or flat name/number.."%>
-            </div>
-          </div>
-          <div class="form-group ">
-            <%=f.label "Stree name", class: "col-md-12 col-form-label"%>
-            <div class="col-md-12">
-              <%=f.email_field :new_street_name, class: "form-control", placeholder: " street.."%>
-            </div>
-          </div>
-          <div class="form-group ">
-            <%=f.label "Zip/Postcode", class: "col-md-12 col-form-label"%>
-            <div class="col-md-12">
-              <%=f.telephone_field :new_post_code, class: "form-control", placeholder: " post/zip code.."%>
+              <%=f.text_area :additional_info, class: "form-control", placeholder: "Additional informations..",:cols => "10", :rows=> "2"%>
             </div>
           </div>
         </div>
       </div>
     </div>
-    
     <div class="col-md-4">
       <div class="card card-primary card-outline col-md-12 calender-card">
         <div class="card-header">
@@ -183,27 +168,35 @@
           <h5 class="card-title m-0">Additional services required</h5>
         </div>
         <div class="card-body">
+          <%=f.fields_for :lead_services,LeadService.new do |ls|%>
+            <%Service.all.each do |service|%>
+              <div class="custom-control custom-checkbox">
+                <%=ls.check_box :service,class: "form-check-input"%>
+                <label class="form-check-label" ><%=service.service_name %></label>
+              </div>
+            <%end%>
+          <%end%>
           
-          <div class="form-group ">
-            <%=f.label "House/Flat name or number", class: "col-md-12 col-form-label"%>
-            <div class="col-md-12">
-              <%=f.text_field :current_house_name_or_number, class: "form-control", placeholder: "house or flat name/number.."%>
-            </div>
-          </div>
-          <div class="form-group ">
-            <%=f.label "Stree name", class: "col-md-12 col-form-label"%>
-            <div class="col-md-12">
-              <%=f.email_field :current_street_name, class: "form-control", placeholder: "current street.."%>
-            </div>
-          </div>
-          <div class="form-group ">
-            <%=f.label "Zip/Postcode", class: "col-md-12 col-form-label"%>
-            <div class="col-md-12">
-              <%=f.telephone_field :current_post_code, class: "form-control", placeholder: "Current post/zip code.."%>
-            </div>
-          </div>
+          
         </div>
       </div>
+    </div>
+  </div>
+  <div class="card card-primary card-outline col-md-12">
+    <div class="card-body"><br>
+      <div class="float-left">
+        <h5>Unsaved Lead</h5>
+      </div>
+    <div class="form-inline float-right">
+      <div class="">
+        <div class="form-group">
+          <%=f.submit "Save", class:"btn btn-primary"%>
+        </div>
+      </div>
+
+    </div>
+      
+      
     </div>
   </div>
  

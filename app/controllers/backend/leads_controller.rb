@@ -48,14 +48,15 @@ class Backend::LeadsController < Backend::BaseController
   private
     def lead_params
       params.require(:lead).permit(:title,:person_name,:valid_phone_number,:valid_email_address,:current_house_name_or_number,:current_street_name,
-        :current_post_code,:new_house_name_or_number,:new_street_name,:new_post_code,:expected_removal_day)
+        :current_post_code,:current_house_bedrooms,:current_house_house_type,:current_house_issues,:new_house_name_or_number,:new_street_name,:new_post_code,
+        :new_house_bedrooms,:new_house_house_type,:new_house_issues,:expected_removal_day,lead_services_attributes:[:_destroy,:lead_id,:service_id])
     end
     def get_breadcumb_path
       add_breadcrumb "Home", :backend_root_path
       add_breadcrumb "Lead",backend_leads_path
     end
 
-    def get_product_id
+    def set_lead
       @lead = Lead.friendly.find(params[:id])
     end
 end

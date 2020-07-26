@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SaasApp - House removal managing System</title>
+    <title>HORESA - House removal managing System</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,6 +10,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container"> 
+      <%=render 'layouts/frontend/nav_bar'%>
+      <%= yield %>
+    </div>
+    
   </body>
 </html>

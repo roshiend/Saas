@@ -21,7 +21,9 @@ class CreateLeads < ActiveRecord::Migration[6.0]
       t.string  :new_house_house_type
       t.string  :new_house_issues
 
-      t.string   :expected_removal_day
+      t.string  :expected_removal_day
+
+      t.string :additional_info
       
     	t.timestamps
     end
