@@ -4,19 +4,19 @@
 #
 # require 'apartment/elevators/generic'
 # require 'apartment/elevators/domain'
-#require 'apartment/elevators/subdomain'
+require 'apartment/elevators/subdomain'
 # require 'apartment/elevators/first_subdomain'
 # require 'apartment/elevators/host'
 
 #
 # Apartment Configuration
 #
-#Apartment.configure do |config|
+Apartment.configure do |config|
 
   # Add any models that you do not want to be multi-tenanted, but remain in the global (public) namespace.
   # A typical example would be a Customer or Tenant model that stores each Tenant's information.
   #
-  #config.excluded_models = %w{ User }
+  config.excluded_models = %w{ Account }
 
   # In order to migrate all of your Tenants you need to provide a list of Tenant names to Apartment.
   # You can make this dynamic by providing a Proc object to be called on migrations.
@@ -48,7 +48,7 @@
   #   end
   # end
   #
-  #config.tenant_names = lambda { User.pluck :subdomain }
+  config.tenant_names = lambda { Account.pluck :subdomain }
 
   # PostgreSQL:
   #   Specifies whether to use PostgreSQL schemas or create a new database per Tenant.
@@ -95,7 +95,7 @@
   # the new tenant
   #
   # config.pg_excluded_names = ["uuid_generate_v4"]
-#end
+end
 
 # Setup a custom Tenant switching middleware. The Proc should return the name of the Tenant that
 # you want to switch to.

@@ -4,29 +4,85 @@
   <% end %>
 </div>
 <br>
-<%=form_for([@account]) do |f|%>
-	<div class="row">
-		<div class="col-md-12">
-	    <div class="card card-primary card-outline col-md-12">
-	        <div class="card-header">
-	          <h5 class="card-title m-0">Services</h5>
-	        </div>
-	        <div class="card-body">
-	          
-	          <div class="form-group ">
-	            <%=f.label "Service name", class: "col-md-12 col-form-label"%>
-	            <div class="col-md-12">
-	              <%=f.text_field :subdomain, class: "form-control", placeholder: "Orgnazation..."%>
-	            </div>
-	          </div>
-	          
-	          
-	        </div>
-	        <div class="card-header">
-	         <%=f.submit 'Create', class: "btn btn-primary" %>
-	         <%=button_tag 'cancel', class: "btn btn-danger" %>
-	        </div>
-	    </div>
-	  </div>	
-	</div>
-<%end%>
+
+	<div class="login-box">
+  
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">Create an Account</p>
+
+      <%=form_for(@account) do |f|%>
+      <%=f.fields_for :owner do |o|%>
+				<div class="input-group mb-3">
+          <%=o.text_field :name, class: "form-control", placeholder: "your name.."%>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-restroom"></span>
+
+              
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <%=o.email_field :email, class: "form-control",placeholder: "your email.."%>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-at"></span>
+
+              
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <%=o.password_field :password, class: "form-control",placeholder: "password.."%>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+
+              
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <%=o.password_field :password_confirmation, class: "form-control",placeholder: "confirm password.."%>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+              
+            </div>
+          </div>
+        </div>
+      <%end%>
+      
+
+        <div class="input-group mb-3">
+          <%=f.text_field :subdomain, class: "form-control",placeholder: "your organization or company name.."%>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-network-wired"></span>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-6 text-center">
+            <%=link_to "Log in",new_user_session_path,class: "btn btn-black btn-block"%>
+          </div>
+          <!-- /.col -->
+          <div class="col-6">
+            <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      <%end%>     
+      
+      
+      
+    </div>
+    <!-- /.login-card-body -->
+  </div>
+</div>
+
+

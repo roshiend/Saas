@@ -1,10 +1,9 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  after_create :tenant_create
-  after_destroy :tenant_delete
-  
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, request_keys:[:subdomain]
+   
+  devise :database_authenticatable,:validatable,
+         :recoverable, :rememberable, request_keys:[:subdomain]
 
+ validates :name, presence: true
+
+  
 end

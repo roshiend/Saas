@@ -10,9 +10,13 @@
   </head>
 
   <body>
+    <%=render 'layouts/frontend/nav_bar'%>
     <div class="container"> 
-      <%=render 'layouts/frontend/nav_bar'%>
+      
       <%= yield %>
+
+      <%=render 'layouts/errors_notifications'%>
+      
     </div>
     
   </body>

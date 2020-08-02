@@ -1,0 +1,69 @@
+
+
+
+
+
+  <div class="login-box">
+  
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">Sign in to your account </p>
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="input-group mb-3">
+          <%=f.text_field :email, class: "form-control",placeholder: "email address..",autofocus: true, autocomplete: "email" %>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-network-wired"></span>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <%=f.text_field :password, class: "form-control",placeholder: "password..",autofocus: true, autocomplete: "current-password" %>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-12 text-center">
+            <div class="icheck-primary">
+              <% if devise_mapping.rememberable? %>
+                <div class="field">
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-6">
+            <%=link_to "Sign up",new_account_path,class: "btn btn-black btn-block"%>
+          </div>
+          <!-- /.col -->
+          <div class="col-6">
+            <button type="submit" class="btn btn-primary btn-block">Log in</button>
+          </div>
+          <!-- /.col -->
+          <div class="div-links-todev text-center col-md-12"><br>
+            <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+              <%= link_to "Forgot your password?", new_password_path(resource_name), class: "forgot-my" %><br />
+            <% end %>
+          </div> 
+          <%#= render "devise/shared/links" %>
+        </div>
+      <%end%>     
+      
+      
+      
+    </div>
+    <!-- /.login-card-body -->
+  </div>
+</div>
+
+

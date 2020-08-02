@@ -52,7 +52,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #f8f9fc;
+  background-color: #dadde0;
 }
 
 [tabindex="-1"]:focus {
@@ -173,6 +173,9 @@ a {
 
 //css overides---------------------------------
 
+.bg-light{
+  background-color: #ffffff !important;
+}
 .select2-container .select2-selection--single {
     box-sizing: border-box;
     cursor: pointer;
@@ -339,6 +342,25 @@ box-shadow: 0px 2px 9px -3px rgba(168,168,168,0.77);
 }
 .input-span-prepend:focus{
   background-color: #e2e2e2a8 !important;
+}
+
+.forgot-my{
+  font-size: small !important;
+}
+.btn {
+    
+    border-radius: 0 !important;
+}
+
+.btn-black{
+  background-color: black !important;
+  color: white !important;
+  cursor: pointer;
+}
+.btn-black:hover{
+  background-color: #343a40 !important;
+  color: white !important;
+  cursor: pointer;
 }
 
 .btn-link_to{
@@ -15471,6 +15493,7 @@ body.text-sm .control-sidebar {
 
 label:not(.form-check-label):not(.custom-file-label) {
   font-weight: 700;
+  font-size: small !important;
 }
 
 .warning-feedback {
@@ -21986,6 +22009,11 @@ html.maximized-card {
 
 .login-box, .register-box {
   width: 360px;
+ position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+
 }
 
 @media (max-width: 576px) {

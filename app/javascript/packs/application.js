@@ -11,6 +11,7 @@ import "@fortawesome/fontawesome-free/js/all";
 import "packs/adminlte.min";
 import "packs/OverlayScrollbars.min";
 import "packs/dashboard2";
+import $ from 'jquery';
 
 
 window.jQuery = $;
@@ -18,6 +19,7 @@ window.$ = $;
 global.toastr = require("toastr")
 
 toastr.options = {
-	"positionClass": "toast-top-right",
+	"positionClass": "toast-bottom-right",
+	"escapeHtml" : false
 	
 }

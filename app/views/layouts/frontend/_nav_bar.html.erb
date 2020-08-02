@@ -1,8 +1,12 @@
 <nav class="navbar navbar-light bg-light">
   <div class="container"> 
-    <a class="navbar-brand">HORESA</a>
+    <%=link_to root_path do %>
+			<%=image_tag('logo.svg',class: "logo-img img-fluid navbar-brand", :width => "150px")%>
+    <%end%>
+    
     <form class="form-inline">
-      <%=link_to "Login",new_account_path, class: "mr-sm-2 btn btn-primary" %>
+      <%=link_to "Log in",new_user_session_path, class: "mr-sm-2 btn btn-primary" %>
+      
     </form>
   </div>
   
